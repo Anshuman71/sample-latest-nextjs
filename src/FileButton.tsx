@@ -7,8 +7,12 @@ export function FileButton() {
     <>
       <button
         onClick={async () => {
-          const data = await getDataFromFile();
-          console.log("From action: ", { data });
+          try {
+            const data = await getDataFromFile();
+            console.log("From action: ", { data });
+          } catch (err) {
+            console.log(err);
+          }
         }}
       >
         Get file data with action
