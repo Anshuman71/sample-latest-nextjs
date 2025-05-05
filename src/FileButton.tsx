@@ -8,7 +8,7 @@ export function FileButton() {
       <button
         onClick={async () => {
           const data = await getDataFromFile();
-          console.log({ data });
+          console.log("From action: ", { data });
         }}
       >
         Get file data with action
@@ -17,7 +17,9 @@ export function FileButton() {
         onClick={async () => {
           fetch("/api")
             .then((res) => res.json())
-            .then((d) => console.log({ d }));
+            .then((d) => {
+              console.log("From route handler: ", d);
+            });
         }}
       >
         Get file data with fetch
